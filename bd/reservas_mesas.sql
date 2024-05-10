@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 10, 2024 at 11:56 PM
+-- Generation Time: May 11, 2024 at 12:54 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,14 +24,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mesas`
+-- Table structure for table `reservas`
 --
 
-CREATE TABLE `mesas` (
-  `numero_mesa` int(4) NOT NULL,
+CREATE TABLE `reservas` (
+  `numero_reserva` int(4) NOT NULL,
+  `codigo_reserva` int(4) NOT NULL,
   `nombre_apellido` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
-  `cantidad_asientos` int(4) NOT NULL
+  `cantidad_asientos` int(4) NOT NULL,
+  `fecha` date NOT NULL,
+  `horario` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -39,20 +42,20 @@ CREATE TABLE `mesas` (
 --
 
 --
--- Indexes for table `mesas`
+-- Indexes for table `reservas`
 --
-ALTER TABLE `mesas`
-  ADD PRIMARY KEY (`numero_mesa`);
+ALTER TABLE `reservas`
+  ADD PRIMARY KEY (`numero_reserva`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `mesas`
+-- AUTO_INCREMENT for table `reservas`
 --
-ALTER TABLE `mesas`
-  MODIFY `numero_mesa` int(4) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `reservas`
+  MODIFY `numero_reserva` int(4) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
