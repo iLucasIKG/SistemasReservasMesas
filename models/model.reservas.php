@@ -13,21 +13,25 @@ class MesasModel {
         $this->mesasID = $mesasID;
     }
 
-    public function crearMesa($nombreApellido,$email,$cantidadAsientos) {
+    public function realizarReserva($codigoReserva,$nombreApellido,$email,$cantidadAsientos,$fecha,$horario) {
         $conexion = new Conexion();
         $pdo = $conexion->conectarDB();
     
 
         //Guardo mi consulta SQL
-        $sql = "INSERT INTO mesas(nombre_apellido, email, cantidad_asientos) VALUES (:nombreApellido,:email,:cantidadAsientos)";
+        $sql = "INSERT INTO reservas(codigo_reserva,nombre_apellido, email, cantidad_asientos,fecha, horario) VALUES (:codigoReserva,:nombreApellido,:email,:cantidadAsientos, :fecha, :horario)";
     
         //Preparo la sentencia SQL
         $statement = $pdo->prepare($sql);
     
         //Remplazo los parámetros de la consulta
+        $statement->bindParam(':codigoReserva', $codigoReserva);
         $statement->bindParam(':nombreApellido', $nombreApellido);
         $statement->bindParam(':email', $email);
         $statement->bindParam(':cantidadAsientos', $cantidadAsientos);
+        $statement->bindParam(':fecha', $fecha);
+        $statement->bindParam(':horario', $horario);
+
     
         if(!$statement){
             echo "Error al crear el registro";
