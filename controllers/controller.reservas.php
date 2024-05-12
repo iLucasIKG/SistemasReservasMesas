@@ -1,24 +1,23 @@
 <?php
 
-require_once '../config.conection.php';
-require_once '../models/model.mesa.php';
+    class ReservasController {
 
-class MesasController {
-    private $modelMesa;
+        private $reservaModel;
 
-    public function __construct() {
-        
-        $conexion = new Conexion();
+        public function __construct() {
+            
+            require_once 'c:/xampp/htdocs/SistemasReservasMesas/models/model.reservas.php';
+            $this->reservaModel = new ReservasModel();
+        }
 
 
-        $this->modelMesa = new MesasModel($conexion);
+        public function realizarReserva($codigoReserva,$nombreApellido,$email,$cantidadPersonas,$fechaReservada,$horarioReservado){
+            $reserva=$this->reservaModel->realizarReserva($codigoReserva,$nombreApellido,$email,$cantidadPersonas,$fechaReservada,$horarioReservado);
+
+            return($reserva!=false)
+                ? header("Location: ../reserva.php")
+                : "No se pudo realizar la reserva";
+        }
     }
-
-
-    public function realizarReserva($codigoReserva,$nombreApellido,$email,$cantidadAsientos,$fecha,$horario){
-        $reserva=$this->modelMesa->realizarReserva($codigoReserva,$nombreApellido,$email,$cantidadAsientos,$fecha,$horario);
-        return $reserva;
-    }
-}
 
 ?>
