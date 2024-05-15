@@ -27,7 +27,7 @@
             <button type="submit" class="btn btn-primary">Reservar</button>
         </form>
     </div>
-    
+
 <!-- <?php 
     include 'layouts/footer.php';
 ?> -->

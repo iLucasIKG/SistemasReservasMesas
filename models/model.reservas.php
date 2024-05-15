@@ -37,14 +37,14 @@
         
         }
         
-        public function mostrarMesas() {
+        public function mostrarReservas() {
             $personas=array();
 
             $conexion = new Conexion();
             $pdo = $conexion->conectarDB();
         
             //Consulta SQL para obtener todas las personas
-            $sql = "SELECT * FROM mesas";
+            $sql = "SELECT * FROM reservas";
         
             //Preparo la sentencia SQL
             $statement = $pdo->prepare($sql);
