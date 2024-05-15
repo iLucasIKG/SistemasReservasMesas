@@ -12,7 +12,9 @@
 
         }
 
-        public function realizarReserva($codigoReserva,$nombreApellido,$email,$cantidadAsientos,$fechaReservada,$horarioReservado) {
+        public function realizarReserva($nombreApellido,$email,$cantidadAsientos,$fechaReservada,$horarioReservado) {
+
+            $codigoReserva = self::generadorDeCodigos();
 
             //Guardo mi consulta SQL
             $sql = "INSERT INTO reservas(codigo_reserva,nombre_apellido, email, cantidad_asientos,fecha, horario) VALUES (:codigoReserva,:nombreApellido,:email,:cantidadAsientos, :fechaReservada, :horarioReservado)";
@@ -104,6 +106,26 @@
             }
             
             
+        }
+
+        public static function generadorDeCodigos(){
+            // Caracteres que se pueden usar en el código
+            $caracteres = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+            //Obtiene la longitud de valores que contiene la cadena
+            $longitudCadena = strlen($caracteres); 
+
+            $codigo = '';
+
+            for($i = 0; $i < 8; $i++){
+                // Obtiene un carácter aleatorio del conjunto de caracteres
+                $caracter_aleatorio = $caracteres[rand(0, $longitudCadena - 1)];
+                    
+                // Agregar el carácter aleatorio a la variable código
+                $codigo .= $caracter_aleatorio;
+            }
+
+            return $codigo;
         }
     }
 ?>

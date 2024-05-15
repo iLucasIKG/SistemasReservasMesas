@@ -11,8 +11,8 @@
         }
 
 
-        public function realizarReserva($codigoReserva,$nombreApellido,$email,$cantidadPersonas,$fechaReservada,$horarioReservado){
-            $reserva=$this->reservaModel->realizarReserva($codigoReserva,$nombreApellido,$email,$cantidadPersonas,$fechaReservada,$horarioReservado);
+        public function realizarReserva($nombreApellido,$email,$cantidadPersonas,$fechaReservada,$horarioReservado){
+            $reserva=$this->reservaModel->realizarReserva($nombreApellido,$email,$cantidadPersonas,$fechaReservada,$horarioReservado);
 
             return($reserva!=false)
                 ? header("Location: ../reserva.php")

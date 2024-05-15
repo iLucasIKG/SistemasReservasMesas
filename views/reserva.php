@@ -5,10 +5,6 @@
     <div class="container vh-100 d-flex justify-content-center align-items-center h-100">
         <form method="POST" action="reservas/store.php" class="bg-white p-3 rounded-2" style="width: 18rem;">
             <div class="mb-3">
-                <label for="" class="form-label">Codigo reservas</label>
-                <input type="text" class="form-control" id="codigoReserva" name="codigoReserva">
-            </div>
-            <div class="mb-3">
                 <label for="" class="form-label">Nombre completo</label>
                 <input type="text" class="form-control" id="nombreCompleto" name="nombreCompleto">
             </div>
